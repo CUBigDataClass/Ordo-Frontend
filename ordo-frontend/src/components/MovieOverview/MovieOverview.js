@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-
-
+import { Box, Grid, Typography } from '@mui/material';
+import MapChat from '../MapChart/MapChart'
 
 const MovieOverview = (props) => {
 
@@ -16,9 +16,17 @@ const MovieOverview = (props) => {
     const plot = props.plot
 
     return (
-        <div style={{overflow:'hidden'}}>
-            <img src={imgURL} style={{height:'100vh'}} />
-        
+        <div style={{overflow:'hidden', color:'white'}}>
+            <Box>
+                <Grid container spacing={24}>
+                    <Grid item xs={3}>
+                        <img src={imgURL} style={{height:'600px', objectFit:'contain'}} />
+                    </Grid>
+                    <Grid item xs={9}>
+                        <MapChat />      
+                    </Grid>
+                </Grid>
+            </Box>
         </div>
     )
 }
