@@ -1,15 +1,26 @@
-import React from 'react'
-import { Tweet, Timeline } from 'react-twitter-widgets'
+import React, { useState, useEffect } from 'react'
+import { Tweet } from 'react-twitter-widgets'
+
+
 const EmbeddedTweet = () => {
+  var tweets = ['1491255003268644866', '1383105268448305155', '463440424141459456']
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
-    <div style={{width:'60vh', height:'auto', position:'absolute', bottom:'0', right:'0', marginBottom:'1%'}}>
+    <div style={{width:'60vh', height:'auto', margin:'1%'}}>
       <div style={{height:'100vh', overflow:'auto'}}>
-        <Tweet tweetId='1491255003268644866' />
-        <Tweet tweetId='1491255003268644866' />
-        <Tweet tweetId='1491255003268644866' />
+        {
+          tweets.map((tweet) => (
+            <div key={tweet}>
+                <Tweet tweetId={tweet} />
+            </div>
+          ))
+        }
       </div>
     </div>
   )
 }
 
 export default EmbeddedTweet
+
+
