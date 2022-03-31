@@ -8,7 +8,6 @@ const EmbeddedTweet = () => {
         <Tweet tweetId='1491255003268644866' />
         <Tweet tweetId='1491255003268644866' />
       </div>
-      
     </div>
   )
 }
