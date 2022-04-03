@@ -21,8 +21,8 @@ const Home = () => {
         releaseDate={'September 22, 1994'}
         runningTime={'142'}
         rating={'9.3/10'}
-        ratingReason={'Drama Film'}
-        genres={['Prison', 'Drama', 'Mystery', 'Crime Fiction']}
+        ratingReason={'Drama'}
+        genres={['Prison', 'Drama', 'Mystery']}
         plot={'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.'}
       />
     </div>
