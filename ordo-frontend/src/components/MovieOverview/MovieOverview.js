@@ -27,8 +27,8 @@ const MovieOverview = (props) => {
                 <div className='col-sm-9' style={{ color: '#fff' }}>
                     <div className='row'>
                         <div className='col-8' style={{ color: '#fff', backgroundColor: 'rgba(0.3,0.3,0.3,0.4)', border: '8px solid #393939', position: 'relative' }}>
-                            <div style={{ zIndex: '1', position: 'absolute', height: '10vh', width: '100%', marginLeft:'-1.5%' }}>
-                                <h3 style={{textAlign:'center', fontSize:'2vw',marginTop:'3%'}}>
+                            <div style={{ zIndex: '1', position: 'absolute', height: '10vh', width: '100%', marginLeft: '-1.5%' }}>
+                                <h3 style={{ textAlign: 'center', fontSize: '2vw', marginTop: '3%' }}>
                                     World Map Sentiment Analysis
                                 </h3>
                             </div>
