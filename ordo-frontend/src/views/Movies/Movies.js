@@ -3,12 +3,11 @@ import React from 'react'
 import MovieCard from '../../components/MovieCard/MovieCard'
 
 const Movies = () => {
-    var arr = ['a','a','a','a','a','a','a','a','a','a']
     return (
         <div className='row'>
             {
-                arr.map(() => (
-                    <div className='col-3' style={{marginTop:'15px'}}>
+                Array.apply(null, Array(100)).map(() => (
+                    <div className='col-12 col-sm-6 col-md-4 col-lg-3' style={{marginTop:'15px'}}>
                         <MovieCard 
                             title={'The Shawshank Redemption'}
                             year={'1994'}
