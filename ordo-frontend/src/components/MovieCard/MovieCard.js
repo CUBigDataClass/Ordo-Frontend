@@ -15,7 +15,8 @@ const MovieCard = (props) => {
 
     function onClickHandler () {
         if (props.more) {
-            alert('Redirecting...');
+            // alert('Redirecting...');
+            window.location='https://www.youtube.com/watch?v=dQw4w9WgXcQ'
         }
     }
 
