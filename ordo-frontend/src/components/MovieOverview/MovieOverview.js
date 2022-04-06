@@ -1,42 +1,43 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types';
-import { Box, Grid, Typography } from '@mui/material';
 
 import MovieCard from '../MovieCard/MovieCard';
 
-import Chip from '@mui/material/Chip';
-import classNames from 'classnames';
-import styles from './MovieOverview.module.css'
-
+import EmbeddedTweet from '../EmbeddedTweet/EmbeddedTweet';
+import MapChart from '../MapChart/MapChart'
 
 const MovieOverview = (props) => {
-    const container = classNames(styles.container);
-    const image = classNames(styles.image);
-    const middle = classNames(styles.middle);
+    // const title = props.title;
+    // const year = props.year;
+    // const imgURL = props.imgURL;
+    // const runningTime = props.runningTime;
+    // const rating = props.rating;
+    // const ratingReason = props.ratingReason;
+    // const genres = props.genres;
+    // const plot = props.plot;
 
-    const [onHover, setOnHover] = useState(false);
-
-    const title = props.title;
-    const year = props.year;
-    const imgURL = props.imgURL;
-    const releaseDate = props.releaseDate;
-    const runningTime = props.runningTime;
-    const rating = props.rating;
-    const ratingReason = props.ratingReason;
-    const genres = props.genres;
-    const plot = props.plot;
-
-    const tweets = ['1491255003268644866', '1383105268448305155', '463440424141459456']
 
 
     return (
-        <div>
+        <div style={{ marginTop: '1%' }}>
             <div className='row'>
-                <div className='col-3'>
+                <div className='col-sm-3'>
                     <MovieCard {...props} />
                 </div>
-                <div className='col-9' style={{color:'#fff', backgroundColor:'white'}}>
-                    sdaf
+                <div className='col-sm-9' style={{ color: '#fff' }}>
+                    <div className='row'>
+                        <div className='col-8' style={{ color: '#fff', backgroundColor: 'rgba(0.3,0.3,0.3,0.4)', border: '8px solid #393939', position: 'relative' }}>
+                            <div style={{ zIndex: '1', position: 'absolute', height: '10vh', width: '100%', marginLeft:'-1.5%' }}>
+                                <h3 style={{textAlign:'center', fontSize:'2vw',marginTop:'3%'}}>
+                                    World Map Sentiment Analysis
+                                </h3>
+                            </div>
+                            <MapChart />
+                        </div>
+                        <div className='col-sm-3'>
+                            <EmbeddedTweet />
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
