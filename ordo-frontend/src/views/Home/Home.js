@@ -9,11 +9,6 @@ const Home = () => {
   var container = classNames(styles.container, true);
   return (
     <div className={container}>
-
-      {/* <div style={{position:'absolute', bottom:'0', right:'0'}}>
-        <EmbeddedTweet />
-      </div> */}
-
       <MovieOverview 
         title={'The Shawshank Redemption'}
         year={'1994'}
