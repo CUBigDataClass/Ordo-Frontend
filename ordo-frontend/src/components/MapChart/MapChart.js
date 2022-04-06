@@ -29,8 +29,8 @@ const MapChart = () => {
     <ComposableMap
       projectionConfig={{ scale: 150 }}
       style={{
-        width: "auto",
-        height: "600px",
+        width: "100%",
+        height: "auto",
       }}
     >
       <Graticule stroke="#E4E5E6" strokeWidth={0.5} />
