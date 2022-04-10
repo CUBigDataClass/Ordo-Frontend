@@ -19,7 +19,7 @@ const MovieCard = (props) => {
             state={{ props }}
         >
             <div className={container} style={props.more ? { cursor: 'pointer' } : {}}>
-                <img src={props.imgURL} className={image} />
+                <img src={props.imgURL} className={image} alt={props.title}/>
                 <div className={middle} style={{ color: 'white', padding: '10px' }}>
                     <div style={{ fontSize: '20px' }}>{props.title}</div>
                     <div className='row' style={{ marginTop: '15px' }}>
