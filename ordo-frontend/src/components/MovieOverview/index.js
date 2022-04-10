@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
+import ReactTooltip from "react-tooltip";
 import PropTypes from 'prop-types';
 
 import MovieCard from '../MovieCard/MovieCard';
 import EmbeddedTweet from '../EmbeddedTweet/EmbeddedTweet';
-import MapChart from '../MapChart/MapChart'
+import MapChart from '../MapChart'
+
 
 const MovieOverview = () => {
+    const [content, setContent] = useState("");
     const location = useLocation();
     const props = location.state.props;
 
@@ -18,13 +21,12 @@ const MovieOverview = () => {
                 </div>
                 <div className='col-sm-9' style={{ color: '#fff' }}>
                     <div className='row'>
-                        <div className='col-8' style={{ color: '#fff', backgroundColor: 'rgba(0.3,0.3,0.3,0.4)', border: '8px solid #393939', position: 'relative' }}>
-                            <div style={{ zIndex: '1', position: 'absolute', height: '10vh', width: '100%', marginLeft: '-1.5%' }}>
-                                <h3 style={{ textAlign: 'center', fontSize: '2vw', marginTop: '3%' }}>
-                                    World Map Sentiment Analysis
-                                </h3>
-                            </div>
-                            <MapChart />
+                        <div className='col-8' style={{ color: '#fff', backgroundColor: 'rgba(0.3,0.3,0.3,0.4)', border: '8px solid #393939' }}>
+                            <h3 style={{ textAlign: 'center', fontSize: '2vw', marginTop: '3%' }}>
+                                World Map Sentiment Analysis
+                            </h3>
+                            <MapChart setTooltipContent={setContent} />
+                            <ReactTooltip>{content}</ReactTooltip>
                         </div>
                         <div className='col-sm-3'>
                             <EmbeddedTweet />
