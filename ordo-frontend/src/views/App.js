@@ -15,15 +15,15 @@ import Navigation from '../components/Navigation/Navigation';
 function App() {
   return (
     <>
-      <Navigation />
-      <div style={{ margin: '0 10% 0 10%' }}>
-        <Router>
+      <Router>
+        <Navigation />
+        <div style={{ margin: '0 10% 0 10%' }}>
           <Routes>
             <Route exact path='/' element={<MovieList />} />
             <Route exact path='/desc' element={<MovieDesc />} />
           </Routes>
-        </Router>
-      </div>
+        </div>
+      </Router>
       <Footer />
     </>
   );

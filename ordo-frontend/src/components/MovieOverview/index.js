@@ -1,22 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import MovieCard from '../MovieCard/MovieCard';
-
 import EmbeddedTweet from '../EmbeddedTweet/EmbeddedTweet';
 import MapChart from '../MapChart/MapChart'
 
-const MovieOverview = (props) => {
-    // const title = props.title;
-    // const year = props.year;
-    // const imgURL = props.imgURL;
-    // const runningTime = props.runningTime;
-    // const rating = props.rating;
-    // const ratingReason = props.ratingReason;
-    // const genres = props.genres;
-    // const plot = props.plot;
-
-
+const MovieOverview = () => {
+    const location = useLocation();
+    const props = location.state.props;
 
     return (
         <div style={{ marginTop: '1%' }}>
