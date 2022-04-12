@@ -11,7 +11,6 @@ import MovieDesc from './MovieDesc';
 import Footer from '../components/Footer';
 import Navigation from '../components/Navigation/Navigation';
 
-
 function App() {
   return (
     <>

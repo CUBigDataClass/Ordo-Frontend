@@ -4,7 +4,7 @@ import ReactTooltip from "react-tooltip";
 import PropTypes from 'prop-types';
 
 import MovieCard from '../MovieCard/MovieCard';
-import EmbeddedTweet from '../EmbeddedTweet/EmbeddedTweet';
+import TwitterFeed from '../Tweets/TwitterFeed';
 import MapChart from '../MapChart'
 
 
@@ -29,7 +29,7 @@ const MovieOverview = () => {
                             <ReactTooltip>{content}</ReactTooltip>
                         </div>
                         <div className='col-sm-3'>
-                            <EmbeddedTweet />
+                            <TwitterFeed />
                         </div>
                     </div>
                 </div>
