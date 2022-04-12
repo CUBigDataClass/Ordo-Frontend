@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import CustomTweet from './CustomTweet'
 
 import { Typography } from '@mui/material';
