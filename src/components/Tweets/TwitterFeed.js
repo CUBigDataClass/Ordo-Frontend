@@ -5,7 +5,6 @@ import { Typography } from '@mui/material';
 
 
 const TwitterFeed = ({movieid}) => {
-  const [error, setError] = useState(null);
   const [tweets, setTweets] = useState([]);
   useEffect(() => {
     fetch(`https://lyrical-cacao-345508.uc.r.appspot.com/tweets?movieId=${movieid}`)
@@ -14,7 +13,7 @@ const TwitterFeed = ({movieid}) => {
         (result) => {
           setTweets(result);
         },
-        (error) => { setError(error); }
+        (error) => { console.log(error) }
       )
   }, []);
 

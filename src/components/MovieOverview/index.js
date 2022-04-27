@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import ReactTooltip from "react-tooltip";
 
@@ -6,32 +6,12 @@ import MovieCard from '../MovieCard/MovieCard';
 import TwitterFeed from '../Tweets/TwitterFeed';
 import MapChart from '../MapChart';
 
-import BarChart from '../BarChart';
 import MutipleCharts from '../BarChart/MutipleCharts';
 
 const MovieOverview = () => {
     const [content, setContent] = useState("");
     const location = useLocation();
     const props = location.state.props;
-
-
-    const [error, setError] = useState(null);
-    const [items, setItems] = useState([]);
-
-    const [percentage, setPercentage] = useState([]);
-    useEffect(() => {
-        fetch("https://lyrical-cacao-345508.uc.r.appspot.com/movies")
-            .then(res => res.json())
-            .then(
-                (result) => {
-                    setItems(result);
-                },
-                (error) => { setError(error); }
-            )
-    }, []);
-    
-
-    
 
     return (
         <div style={{ marginTop: '1%' }}>

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import MovieCard from '../components/MovieCard/MovieCard'
 
 const MovieList = () => {
-    const [error, setError] = useState(null);
     const [items, setItems] = useState([]);
     useEffect(() => {
         fetch("https://lyrical-cacao-345508.uc.r.appspot.com/movies")
@@ -11,7 +10,7 @@ const MovieList = () => {
                 (result) => {
                     setItems(result);
                 },
-                (error) => { setError(error); }
+                (error) => { console.log(error) }
             )
     }, []);
 

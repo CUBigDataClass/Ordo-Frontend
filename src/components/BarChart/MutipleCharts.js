@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import BarChart from '.';
 const MutipleCharts = ({movieid}) => {
-    const [error, setError] = useState(null);
     const [items, setItems] = useState([]);
 
     useEffect(() => {
@@ -11,7 +10,7 @@ const MutipleCharts = ({movieid}) => {
                 (result) => {
                     setItems(result);
                 },
-                (error) => { setError(error); }
+                (error) => { console.log(error) }
             )
     }, []);
 
