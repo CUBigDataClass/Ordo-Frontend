@@ -24,7 +24,7 @@ const MovieCard = (props) => {
                     <div className='row' style={{ marginTop: '15px' }}>
                         <div className='col'>{props.year}</div>|
                         <div className='col'>{props.runningTime}m</div>|
-                        <div className='col'>{props.rating}</div>|
+                        <div className='col' style={{color:'#e50914'}}>{props.rating}</div>|
                         <div className='col'>{props.ratingReason}</div>
                     </div>
                     <div className='row' style={{ marginTop: '20px' }}>
@@ -36,7 +36,11 @@ const MovieCard = (props) => {
                             })}
                         </div>
                     </div>
-                    <div className='row' style={{ textAlign: 'left', margin: '5%', fontSize: '15px' }}>{props.plot}</div>
+                    {
+                        props.inOverview && props.morePlot != null ?
+                        <div className='row' style={{ textAlign: 'left', margin: '5%', fontSize: '15px' }}>{props.morePlot}</div> :
+                        <div className='row' style={{ textAlign: 'left', margin: '5%', fontSize: '15px' }}>{props.plot}</div>
+                    }
                 </div>
             </div>
         </Link >

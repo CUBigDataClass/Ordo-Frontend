@@ -17,7 +17,7 @@ const MovieOverview = () => {
         <div style={{ marginTop: '1%' }}>
             <div className='row'>
                 <div className='col-sm-3'>
-                    <MovieCard {...props} />
+                    <MovieCard {...props} inOverview={true}/>
                 </div>
                 <div className='col-sm-9' style={{ color: '#fff' }}>
                     <div className='row'>

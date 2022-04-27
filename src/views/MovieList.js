@@ -29,6 +29,7 @@ const MovieList = () => {
                             ratingReason={item.RATING}
                             genres={item.GENRES.replaceAll("'", '').split(',')}
                             plot={item.PLOTOUTLINE}
+                            morePlot={item.PLOT}
                             more={true}
                             id={item.MOVIEID}
                         />
