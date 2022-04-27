@@ -8,11 +8,11 @@ import 'react-circular-progressbar/dist/styles.css';
 const BarChart = ({ value, sentiment }) => {
     return (
         <div>
-            <div className='row' style={{textAlign:'center', fontSize:'20px'}}>
+            <div className='row' style={{ textAlign: 'center', fontSize: '20px' }}>
                 <span>{sentiment}</span>
             </div>
             <div className='row'>
-                <AnimatedProgressProvider
+                {/* <AnimatedProgressProvider
                     valueStart={0}
                     valueEnd={value}
                     duration={1.4}
@@ -24,13 +24,15 @@ const BarChart = ({ value, sentiment }) => {
                             <CircularProgressbar
                                 value={value}
                                 text={`${roundedValue}%`}
-                                /* This is important to include, because if you're fully managing the
-                          animation yourself, you'll want to disable the CSS animation. */
                                 styles={buildStyles({ pathTransition: "none" })}
                             />
                         );
                     }}
-                </AnimatedProgressProvider>
+                </AnimatedProgressProvider> */}
+                <CircularProgressbar
+                    value={value}
+                    text={`${value}%`}
+                />
             </div>
         </div>
     )

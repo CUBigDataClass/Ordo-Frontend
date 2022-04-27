@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 
@@ -44,18 +44,7 @@ const MovieCard = (props) => {
     )
 }
 
-MovieCard.propTypes = {
-    title: PropTypes.string.isRequired,
-    year: PropTypes.string.isRequired,
-    imgURL: PropTypes.string.isRequired,
-    releaseDate: PropTypes.string.isRequired,
-    runningTime: PropTypes.string.isRequired,
-    rating: PropTypes.string.isRequired,
-    ratingReason: PropTypes.string.isRequired,
-    genres: PropTypes.array.isRequired,
-    plot: PropTypes.string.isRequired,
-    more: PropTypes.bool
-}
+
 
 MovieCard.defaultProps = {
     more: false
