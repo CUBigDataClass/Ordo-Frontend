@@ -1,20 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import ReactTooltip from "react-tooltip";
-import PropTypes from 'prop-types';
 
 import MovieCard from '../MovieCard/MovieCard';
 import TwitterFeed from '../Tweets/TwitterFeed';
 import MapChart from '../MapChart';
 
 import BarChart from '../BarChart';
+import MutipleCharts from '../BarChart/MutipleCharts';
 
 const MovieOverview = () => {
     const [content, setContent] = useState("");
     const location = useLocation();
     const props = location.state.props;
 
-    const percentage = 0.66;
+
+    const [error, setError] = useState(null);
+    const [items, setItems] = useState([]);
+
+    const [percentage, setPercentage] = useState([]);
+    useEffect(() => {
+        fetch("https://lyrical-cacao-345508.uc.r.appspot.com/movies")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    setItems(result);
+                },
+                (error) => { setError(error); }
+            )
+    }, []);
+    
+
+    
+
     return (
         <div style={{ marginTop: '1%' }}>
             <div className='row'>
@@ -32,20 +50,10 @@ const MovieOverview = () => {
                             <h3 style={{ textAlign: 'center', fontSize: '1.5vw', marginTop: '3%' }}>
                                 Tweets Sentiment Analysis
                             </h3>
-                            <div className='row' style={{marginBottom:'5%'}}>
-                                <div className='col'>
-                                <BarChart value={percentage*100} sentiment='Postive'/>
-                                </div>
-                                <div className='col'>
-                                <BarChart value={percentage*100} sentiment='Neutral'/>
-                                </div>
-                                <div className='col'>
-                                <BarChart value={percentage*100} sentiment='Negative'/>
-                                </div>
-                            </div>
+                            <MutipleCharts movieid={props.id}/>
                         </div>
                         <div className='col-sm-3'>
-                            <TwitterFeed />
+                            <TwitterFeed movieid={props.id} />
                         </div>
                     </div>
                 </div>
@@ -54,19 +62,5 @@ const MovieOverview = () => {
     )
 }
 
-MovieOverview.propTypes = {
-    title: PropTypes.string.isRequired,
-    year: PropTypes.string.isRequired,
-    imgURL: PropTypes.string.isRequired,
-    releaseDate: PropTypes.string.isRequired,
-    runningTime: PropTypes.string.isRequired,
-    rating: PropTypes.string.isRequired,
-    ratingReason: PropTypes.string.isRequired,
-    genres: PropTypes.array.isRequired,
-    plot: PropTypes.string.isRequired
-}
-
-// MovieOverview.defaultProps = {
-// }
 
 export default MovieOverview

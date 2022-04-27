@@ -1,23 +1,37 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import MovieCard from '../components/MovieCard/MovieCard'
 
 const MovieList = () => {
+    const [error, setError] = useState(null);
+    const [items, setItems] = useState([]);
+    useEffect(() => {
+        fetch("https://lyrical-cacao-345508.uc.r.appspot.com/movies")
+            .then(res => res.json())
+            .then(
+                (result) => {
+                    setItems(result);
+                },
+                (error) => { setError(error); }
+            )
+    }, []);
+
     return (
         <div className='row'>
             {
-                Array.apply(null, Array(100)).map(() => (
-                    <div className='col-12 col-sm-6 col-md-4 col-lg-3' style={{marginTop:'15px'}}>
+                items.reverse().map((item) => (
+                    <div className='col-12 col-sm-6 col-md-4 col-lg-3' style={{marginTop:'15px'}} key={item.MOVIEID}>
                         <MovieCard 
-                            title={'The Shawshank Redemption'}
-                            year={'1994'}
-                            imgURL={'https://m.media-amazon.com/images/M/MV5BMDFkYTc0MGEtZmNhMC00ZDIzLWFmNTEtODM1ZmRlYWMwMWFmXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_.jpg'}
-                            releaseDate={'September 22, 1994'}
-                            runningTime={'142'}
-                            rating={'9.3/10'}
-                            ratingReason={'Drama'}
-                            genres={['Prison', 'Drama', 'Mystery']}
-                            plot={'Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.'}
+                            title={item.TITLE}
+                            year={item.YEAR}
+                            imgURL={item.IMGURL}
+                            releaseDate={item.RELEASEDATE}
+                            runningTime={item.runningtime}
+                            rating={`${item.ORDORATING}/10`}
+                            ratingReason={item.RATING}
+                            genres={item.GENRES.replaceAll("'", '').split(',')}
+                            plot={item.PLOTOUTLINE}
                             more={true}
+                            id={item.MOVIEID}
                         />
                     </div>
                 ))

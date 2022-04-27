@@ -1,19 +1,31 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import CustomTweet from './CustomTweet'
 
 import { Typography } from '@mui/material';
 
 
-const TwitterFeed = () => {
-  var tweets = ['1491255003268644866', '1383105268448305155', '463440424141459456']
-  
+const TwitterFeed = ({movieid}) => {
+  const [error, setError] = useState(null);
+  const [tweets, setTweets] = useState([]);
+  useEffect(() => {
+    fetch(`https://lyrical-cacao-345508.uc.r.appspot.com/tweets?movieId=${movieid}`)
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setTweets(result);
+        },
+        (error) => { setError(error); }
+      )
+  }, []);
+
+
   return (
     <div style={{ width: '40vh', height: 'auto', margin: '0 1% 1% 1%', float: 'center' }}>
       <Typography variant='h5'>Twitter Review's</Typography>
       <div style={{ height: '90vh', overflow: 'auto' }}>
         {
           tweets.map((tweet) => (
-            <CustomTweet tweet={tweet} />
+            <CustomTweet tweet={tweet.TWEETID} key={tweet.TWEETID}/>
           ))
         }
       </div>
